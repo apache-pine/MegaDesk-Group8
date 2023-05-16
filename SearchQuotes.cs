@@ -15,6 +15,9 @@ namespace MegaDesk_Group8
         public SearchQuotes()
         {
             InitializeComponent();
+
+            List<DesktopMaterial> materials = Enum.GetValues(typeof(DesktopMaterial)).Cast<DesktopMaterial>().ToList();
+            desktopMaterialComboBox.DataSource = materials;
         }
 
         private void SearchQuotes_Load(object sender, EventArgs e)

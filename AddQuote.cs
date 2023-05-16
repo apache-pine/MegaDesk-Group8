@@ -2,17 +2,23 @@
 using System.Windows.Forms;
 using System.ComponentModel;
 using System.Drawing;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace MegaDesk_Group8
 {
     public partial class AddQuote : Form
     {
+
         public AddQuote()
         {
             InitializeComponent();
+
+            List<DesktopMaterial> materials = Enum.GetValues(typeof(DesktopMaterial)).Cast<DesktopMaterial>().ToList();
+            desktopMaterialComboBox.DataSource = materials;
         }
 
-        private void Cancel_Click(object sender, EventArgs e)
+        private void cancelButton_Click(object sender, EventArgs e)
         {
             MainMenu viewMainMenu = (MainMenu)Tag;
             viewMainMenu.Show();
@@ -24,24 +30,24 @@ namespace MegaDesk_Group8
             MainMenu viewMainMenu = (MainMenu)Tag;
             viewMainMenu.Show();
         }
-        private void WidthSelect_Validating(object sender, CancelEventArgs e)
+        private void widthNumericUpDown_Validating(object sender, CancelEventArgs e)
         {
             int width;
-            bool isNumeric = int.TryParse(WidthSelect.Text, out width);
+            bool isNumeric = int.TryParse(widthNumericUpDown.Text, out width);
 
-            if (!isNumeric || width < Desk.MINWIDTH || width > Desk.MAXWIDTH)
+            if (!isNumeric || width < Desk.DeskMinWidth || width > Desk.DeskMaxWidth)
             {
-                WidthSelect.BackColor = Color.Red;
+                widthNumericUpDown.BackColor = Color.Red;
                 e.Cancel = true;
-                WidthSelect.Focus();
+                widthNumericUpDown.Focus();
             }
             else
             {
-                WidthSelect.BackColor = Color.White;
+                widthNumericUpDown.BackColor = Color.White;
             }
         }
 
-        private void DepthSelect_KeyPress(object sender, KeyPressEventArgs e)
+        private void depthNumericUpDown_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {
@@ -51,7 +57,12 @@ namespace MegaDesk_Group8
 
         private void AddQuote_Load(object sender, EventArgs e)
         {
-            DeliverySelect.SelectedIndex = 3;
+            rushOrderComboBox.SelectedIndex = 3;
+        }
+
+        private void getQuoteButton_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

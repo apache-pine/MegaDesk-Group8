@@ -6,27 +6,35 @@ using System.Threading.Tasks;
 
 namespace MegaDesk_Group8
 {
-    internal class Desk
+    public class Desk
     {
-        // set the width and depth maximum and minimum constraints (4) as constants stored within the Desk.cs class.
 
-        public const decimal MINWIDTH = 24;
-        public const decimal MAXWIDTH = 96;
-        public const decimal MINDEPTH = 12;
-        public const decimal MAXDEPTH = 48;
+        public const int DeskMinWidth = 24;
+        public const int DeskMaxWidth = 96;
+        public const int DeskMinDepth = 12;
+        public const int DeskMaxDepth = 48;
 
-        public decimal Width { get; set; }
-
-        public decimal Depth { get; set; }
-
+        public int Width { get; set; }
+        public int Depth { get; set; }
         public int NumDrawers { get; set; }
+        public DesktopMaterial DeskMaterial { get; set; }
+
+        public Desk(int width, int depth, int numDrawers, DesktopMaterial deskMaterial)
+        {
+            Width = width;
+            Depth = depth;
+            NumDrawers = numDrawers;
+            DeskMaterial = deskMaterial;
+        }
     }
-    public enum SurfaceMaterial
+
+    public enum DesktopMaterial
     {
-        Oak,
-        Laminate,
-        Pine,
-        Rosewood,
-        Veneer
+        None=0,
+        Oak=200,
+        Laminate=100,
+        Pine=50,
+        Rosewood=300,
+        Veneer=125
     }
 }
