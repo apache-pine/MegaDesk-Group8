@@ -12,20 +12,22 @@ namespace MegaDesk_Group8
         public Desk desk;
         public const int BaseDeskPrice = 200;
         public const int DrawerPrice = 50;
-        public string CurrentDate { get; set; }
+        public string QuoteDate { get; set; }
         public string CustomerName { get; set; }
-        public string Shipping { get; set; }
+        public int RushOrder { get; set; }
         public decimal QuotePrice { get; set; }
         public Desk Desk { get; set; }
 
-        public DeskQuote(string customerName, string shipping, decimal quotePrice, Desk desk)
+        public DeskQuote(string customerName, int rushOrder, decimal quotePrice, Desk desk)
         {
-
+            CustomerName = customerName;
+            RushOrder = rushOrder;
+            QuotePrice = quotePrice;
+            Desk = desk;
         }
 
         public decimal GetQuotePrice(int width, int depth, int numDrawers, DesktopMaterial material, int rushOrder)
         {
-            // TODO:
             decimal price = 0;
 
             price += BaseDeskPrice;

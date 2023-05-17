@@ -20,7 +20,7 @@ namespace MegaDesk_Group8
         private void DisplayQuote_FormClosing(object sender, FormClosingEventArgs e)
         {
             AddQuote addQuote = new AddQuote();
-            addQuote.Tag = this.Tag;
+            addQuote.Tag = Tag;
             addQuote.Show();
         }
     }

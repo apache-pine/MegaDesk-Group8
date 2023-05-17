@@ -4,11 +4,21 @@ using System.ComponentModel;
 using System.Drawing;
 using System.Collections.Generic;
 using System.Linq;
+using Newtonsoft.Json;
+
 
 namespace MegaDesk_Group8
 {
     public partial class AddQuote : Form
     {
+        int deskWidth = 0;
+        int deskDepth = 0;
+        int numDrawers = 0;
+        DesktopMaterial desktopMaterial;
+        int rushOrder;
+        string customerName = "";
+        Desk newDesk;
+        DeskQuote newQuote;
 
         public AddQuote()
         {
@@ -62,12 +72,31 @@ namespace MegaDesk_Group8
 
         private void getQuoteButton_Click(object sender, EventArgs e)
         {
+            deskWidth = (int)widthNumericUpDown.Value;
+            deskDepth = (int)depthNumericUpDown.Value;
+            numDrawers = (int)numDrawerNumericUpDown.Value;
+            desktopMaterial = (DesktopMaterial)desktopMaterialComboBox.SelectedValue;
+            rushOrder = rushOrderComboBox.SelectedIndex;
+            customerName = customerNameInput.Text;
+            decimal quotePrice = newQuote.GetQuotePrice(deskWidth, deskDepth, numDrawers, desktopMaterial, rushOrder);
+
+            if (customerName == string.Empty)
+            {
+                customerNameInput.BackColor = Color.Red;
+                customerNameInput.Focus();
+            }
+            else
+            {
+                newDesk = new Desk(deskWidth, deskDepth, numDrawers, desktopMaterial);
+                newQuote = new DeskQuote(customerName, rushOrder, quotePrice, newDesk);
 
 
-            DisplayQuote viewDisplayQuote = new DisplayQuote();
-            viewDisplayQuote.Tag = this;
-            viewDisplayQuote.Show(this);
-            Hide();
+
+                DisplayQuote viewDisplayQuote = new DisplayQuote();
+                viewDisplayQuote.Tag = this;
+                viewDisplayQuote.Show(this);
+                Hide();
+            }
         }
     }
 }

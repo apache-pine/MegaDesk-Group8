@@ -58,7 +58,7 @@
             this.getQuoteButton.Location = new System.Drawing.Point(163, 214);
             this.getQuoteButton.Name = "getQuoteButton";
             this.getQuoteButton.Size = new System.Drawing.Size(144, 40);
-            this.getQuoteButton.TabIndex = 1;
+            this.getQuoteButton.TabIndex = 6;
             this.getQuoteButton.Text = "&Get Quote";
             this.getQuoteButton.UseVisualStyleBackColor = true;
             this.getQuoteButton.Click += new System.EventHandler(this.getQuoteButton_Click);
@@ -70,7 +70,7 @@
             this.cancelButton.Location = new System.Drawing.Point(342, 214);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(144, 40);
-            this.cancelButton.TabIndex = 2;
+            this.cancelButton.TabIndex = 7;
             this.cancelButton.Text = "&Cancel";
             this.cancelButton.UseVisualStyleBackColor = true;
             this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
@@ -133,7 +133,7 @@
             this.desktopMaterialComboBox.Location = new System.Drawing.Point(492, 118);
             this.desktopMaterialComboBox.Name = "desktopMaterialComboBox";
             this.desktopMaterialComboBox.Size = new System.Drawing.Size(162, 24);
-            this.desktopMaterialComboBox.TabIndex = 5;
+            this.desktopMaterialComboBox.TabIndex = 4;
             // 
             // DeskSizeBox
             // 
@@ -147,7 +147,7 @@
             this.DeskSizeBox.Name = "DeskSizeBox";
             this.tableLayoutPanel1.SetRowSpan(this.DeskSizeBox, 3);
             this.DeskSizeBox.Size = new System.Drawing.Size(254, 90);
-            this.DeskSizeBox.TabIndex = 5;
+            this.DeskSizeBox.TabIndex = 1;
             this.DeskSizeBox.TabStop = false;
             this.DeskSizeBox.Text = "Desk Size";
             // 
@@ -166,7 +166,7 @@
             0});
             this.depthNumericUpDown.Name = "depthNumericUpDown";
             this.depthNumericUpDown.Size = new System.Drawing.Size(120, 22);
-            this.depthNumericUpDown.TabIndex = 3;
+            this.depthNumericUpDown.TabIndex = 1;
             this.depthNumericUpDown.Value = new decimal(new int[] {
             12,
             0,
@@ -189,7 +189,7 @@
             0});
             this.widthNumericUpDown.Name = "widthNumericUpDown";
             this.widthNumericUpDown.Size = new System.Drawing.Size(120, 22);
-            this.widthNumericUpDown.TabIndex = 2;
+            this.widthNumericUpDown.TabIndex = 0;
             this.widthNumericUpDown.Value = new decimal(new int[] {
             24,
             0,
@@ -266,7 +266,7 @@
             this.customerNameInput.Location = new System.Drawing.Point(163, 49);
             this.customerNameInput.Name = "customerNameInput";
             this.customerNameInput.Size = new System.Drawing.Size(266, 22);
-            this.customerNameInput.TabIndex = 9;
+            this.customerNameInput.TabIndex = 0;
             // 
             // numDrawerNumericUpDown
             // 
@@ -279,7 +279,7 @@
             0});
             this.numDrawerNumericUpDown.Name = "numDrawerNumericUpDown";
             this.numDrawerNumericUpDown.Size = new System.Drawing.Size(43, 22);
-            this.numDrawerNumericUpDown.TabIndex = 10;
+            this.numDrawerNumericUpDown.TabIndex = 3;
             // 
             // rushOrderComboBox
             // 
@@ -294,7 +294,7 @@
             this.rushOrderComboBox.Location = new System.Drawing.Point(492, 149);
             this.rushOrderComboBox.Name = "rushOrderComboBox";
             this.rushOrderComboBox.Size = new System.Drawing.Size(162, 24);
-            this.rushOrderComboBox.TabIndex = 11;
+            this.rushOrderComboBox.TabIndex = 5;
             // 
             // AddQuote
             // 
