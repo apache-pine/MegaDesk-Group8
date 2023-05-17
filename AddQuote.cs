@@ -63,6 +63,11 @@ namespace MegaDesk_Group8
         private void getQuoteButton_Click(object sender, EventArgs e)
         {
 
+
+            DisplayQuote viewDisplayQuote = new DisplayQuote();
+            viewDisplayQuote.Tag = this;
+            viewDisplayQuote.Show(this);
+            Hide();
         }
     }
 }

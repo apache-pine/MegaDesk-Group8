@@ -14,17 +14,17 @@ namespace MegaDesk_Group8
         public const int DeskMinDepth = 12;
         public const int DeskMaxDepth = 48;
 
-        public int Width { get; set; }
-        public int Depth { get; set; }
+        public int DeskWidth { get; set; }
+        public int DeskDepth { get; set; }
         public int NumDrawers { get; set; }
-        public DesktopMaterial DeskMaterial { get; set; }
+        public DesktopMaterial DesktopMaterial { get; set; }
 
         public Desk(int width, int depth, int numDrawers, DesktopMaterial deskMaterial)
         {
-            Width = width;
-            Depth = depth;
+            DeskWidth = width;
+            DeskDepth = depth;
             NumDrawers = numDrawers;
-            DeskMaterial = deskMaterial;
+            DesktopMaterial = deskMaterial;
         }
     }
 

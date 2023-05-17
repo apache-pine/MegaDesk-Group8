@@ -7,10 +7,12 @@ using System.IO;
 
 namespace MegaDesk_Group8
 {
-    internal class DeskQuote
+    public class DeskQuote
     {
+        public Desk desk;
         public const int BaseDeskPrice = 200;
         public const int DrawerPrice = 50;
+        public string CurrentDate { get; set; }
         public string CustomerName { get; set; }
         public string Shipping { get; set; }
         public decimal QuotePrice { get; set; }

@@ -38,7 +38,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "DisplayQuote";
-            this.Text = "DisplayQuote";
+            this.Text = "Display Quote";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.DisplayQuote_FormClosing);
             this.ResumeLayout(false);
 

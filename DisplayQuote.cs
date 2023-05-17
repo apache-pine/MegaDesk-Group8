@@ -19,8 +19,9 @@ namespace MegaDesk_Group8
 
         private void DisplayQuote_FormClosing(object sender, FormClosingEventArgs e)
         {
-            MainMenu viewMainMenu = (MainMenu)Tag;
-            viewMainMenu.Show();
+            AddQuote addQuote = new AddQuote();
+            addQuote.Tag = this.Tag;
+            addQuote.Show();
         }
     }
 }
