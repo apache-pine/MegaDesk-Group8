@@ -37,13 +37,13 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.titleLabel = new System.Windows.Forms.Label();
             this.deskInfoGroupBox = new System.Windows.Forms.GroupBox();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.surfaceAreaTextBox = new System.Windows.Forms.TextBox();
+            this.desktopMaterialTextBox = new System.Windows.Forms.TextBox();
+            this.numDrawersTextBox = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.deskInfoGroupBox.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -73,9 +73,10 @@
             // 
             this.quotePriceLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.quotePriceLabel.AutoSize = true;
-            this.quotePriceLabel.Location = new System.Drawing.Point(178, 212);
+            this.quotePriceLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.quotePriceLabel.Location = new System.Drawing.Point(178, 210);
             this.quotePriceLabel.Name = "quotePriceLabel";
-            this.quotePriceLabel.Size = new System.Drawing.Size(119, 16);
+            this.quotePriceLabel.Size = new System.Drawing.Size(119, 20);
             this.quotePriceLabel.TabIndex = 2;
             this.quotePriceLabel.Text = "Quote Price";
             // 
@@ -83,6 +84,7 @@
             // 
             this.customerNameTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.customerNameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.customerNameTextBox.Enabled = false;
             this.customerNameTextBox.Location = new System.Drawing.Point(303, 109);
             this.customerNameTextBox.Name = "customerNameTextBox";
             this.customerNameTextBox.Size = new System.Drawing.Size(314, 22);
@@ -92,6 +94,7 @@
             // 
             this.quoteDateTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.quoteDateTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.quoteDateTextBox.Enabled = false;
             this.quoteDateTextBox.Location = new System.Drawing.Point(303, 159);
             this.quoteDateTextBox.Name = "quoteDateTextBox";
             this.quoteDateTextBox.Size = new System.Drawing.Size(314, 22);
@@ -101,9 +104,11 @@
             // 
             this.quotePriceTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.quotePriceTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.quotePriceTextBox.Location = new System.Drawing.Point(303, 209);
+            this.quotePriceTextBox.Enabled = false;
+            this.quotePriceTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.quotePriceTextBox.Location = new System.Drawing.Point(303, 207);
             this.quotePriceTextBox.Name = "quotePriceTextBox";
-            this.quotePriceTextBox.Size = new System.Drawing.Size(314, 22);
+            this.quotePriceTextBox.Size = new System.Drawing.Size(314, 26);
             this.quotePriceTextBox.TabIndex = 5;
             // 
             // tableLayoutPanel1
@@ -112,7 +117,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 175F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 125F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 320F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 135F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 179F));
             this.tableLayoutPanel1.Controls.Add(this.titleLabel, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.quotePriceTextBox, 2, 5);
             this.tableLayoutPanel1.Controls.Add(this.quotePriceLabel, 1, 5);
@@ -161,6 +166,30 @@
             this.deskInfoGroupBox.TabStop = false;
             this.deskInfoGroupBox.Text = "Desk Info";
             // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.ColumnCount = 4;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel2.Controls.Add(this.label1, 1, 1);
+            this.tableLayoutPanel2.Controls.Add(this.label2, 1, 2);
+            this.tableLayoutPanel2.Controls.Add(this.label3, 1, 3);
+            this.tableLayoutPanel2.Controls.Add(this.surfaceAreaTextBox, 2, 1);
+            this.tableLayoutPanel2.Controls.Add(this.desktopMaterialTextBox, 2, 2);
+            this.tableLayoutPanel2.Controls.Add(this.numDrawersTextBox, 2, 3);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 21);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 5;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 38F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 38F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 38F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 11F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(435, 154);
+            this.tableLayoutPanel2.TabIndex = 0;
+            // 
             // label1
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
@@ -191,56 +220,35 @@
             this.label3.TabIndex = 2;
             this.label3.Text = "Number of Drawers";
             // 
-            // tableLayoutPanel2
+            // surfaceAreaTextBox
             // 
-            this.tableLayoutPanel2.ColumnCount = 4;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel2.Controls.Add(this.label1, 1, 1);
-            this.tableLayoutPanel2.Controls.Add(this.label2, 1, 2);
-            this.tableLayoutPanel2.Controls.Add(this.label3, 1, 3);
-            this.tableLayoutPanel2.Controls.Add(this.textBox1, 2, 1);
-            this.tableLayoutPanel2.Controls.Add(this.textBox2, 2, 2);
-            this.tableLayoutPanel2.Controls.Add(this.textBox3, 2, 3);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 21);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 5;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 38F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 38F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 38F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 11F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(435, 154);
-            this.tableLayoutPanel2.TabIndex = 0;
+            this.surfaceAreaTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.surfaceAreaTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.surfaceAreaTextBox.Enabled = false;
+            this.surfaceAreaTextBox.Location = new System.Drawing.Point(220, 28);
+            this.surfaceAreaTextBox.Name = "surfaceAreaTextBox";
+            this.surfaceAreaTextBox.Size = new System.Drawing.Size(168, 22);
+            this.surfaceAreaTextBox.TabIndex = 3;
             // 
-            // textBox1
+            // desktopMaterialTextBox
             // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox1.Location = new System.Drawing.Point(220, 28);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(168, 22);
-            this.textBox1.TabIndex = 3;
+            this.desktopMaterialTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.desktopMaterialTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.desktopMaterialTextBox.Enabled = false;
+            this.desktopMaterialTextBox.Location = new System.Drawing.Point(220, 66);
+            this.desktopMaterialTextBox.Name = "desktopMaterialTextBox";
+            this.desktopMaterialTextBox.Size = new System.Drawing.Size(168, 22);
+            this.desktopMaterialTextBox.TabIndex = 4;
             // 
-            // textBox2
+            // numDrawersTextBox
             // 
-            this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox2.Location = new System.Drawing.Point(220, 66);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(168, 22);
-            this.textBox2.TabIndex = 4;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox3.Location = new System.Drawing.Point(220, 104);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(168, 22);
-            this.textBox3.TabIndex = 5;
+            this.numDrawersTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.numDrawersTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.numDrawersTextBox.Enabled = false;
+            this.numDrawersTextBox.Location = new System.Drawing.Point(220, 104);
+            this.numDrawersTextBox.Name = "numDrawersTextBox";
+            this.numDrawersTextBox.Size = new System.Drawing.Size(168, 22);
+            this.numDrawersTextBox.TabIndex = 5;
             // 
             // DisplayQuote
             // 
@@ -277,8 +285,8 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox surfaceAreaTextBox;
+        private System.Windows.Forms.TextBox desktopMaterialTextBox;
+        private System.Windows.Forms.TextBox numDrawersTextBox;
     }
 }

@@ -4,62 +4,113 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using System.ComponentModel;
 
 namespace MegaDesk_Group8
 {
+    public enum Delivery
+    {
+        [Description("Rush 3 Days")]
+        Rush3Days,
+
+        [Description("Rush 5 Days")]
+        Rush5Days,
+
+        [Description("Rush 7 Days")]
+        Rush7Days,
+
+        [Description("No Rush (14 Days)")]
+        Default14Days
+    }
     public class DeskQuote
     {
-        public Desk desk;
-        public const int BaseDeskPrice = 200;
-        public const int DrawerPrice = 50;
-        public string QuoteDate { get; set; }
-        public string CustomerName { get; set; }
-        public int RushOrder { get; set; }
-        public decimal QuotePrice { get; set; }
-        public Desk Desk { get; set; }
+        private int[,] _rushOrderPrice;
 
-        public DeskQuote(string customerName, int rushOrder, decimal quotePrice, Desk desk)
+        public const decimal BASE_DESK_PRICE = 200.00M;
+        public const decimal DRAWER_PRICE = 50.00M;
+        public const decimal SURFACE_AREA_PRICE = 1.00M;
+
+        public Desk Desk { get; set; }
+        public string CustomerName { get; set; }
+        public DateTime QuoteDate { get; set; } 
+        public Delivery RushOrder { get; set; }
+        public decimal QuotePrice { get; set; }
+        
+
+
+        public decimal GetQuotePrice()
         {
-            CustomerName = customerName;
-            RushOrder = rushOrder;
-            QuotePrice = quotePrice;
-            Desk = desk;
+            getRushOrderPrice();
+
+            decimal quotePrice = BASE_DESK_PRICE;
+            decimal surfaceArea = this.Desk.DeskDepth * this.Desk.DeskWidth;
+            decimal surfacePrice = 0.00M;
+
+            if (surfaceArea > 1000)
+            {
+                surfacePrice = (surfaceArea - 1000) * SURFACE_AREA_PRICE;
+            }
+
+            decimal drawerPrice = this.Desk.NumDrawers * DRAWER_PRICE;
+
+            decimal materialPrice = getMaterialPrice(this.Desk.DesktopMaterial);
+
+            decimal shippingPrice = 0.00M;
+
+            int surfaceAreaCategory;
+
+            if (surfaceArea < 1000)
+            {
+                surfaceAreaCategory = 0;
+            }
+            else if (surfaceArea <= 2000)
+            {
+                surfaceAreaCategory = 1;
+            }
+            else
+            {
+                surfaceAreaCategory = 2;
+            }
+
+            switch (this.RushOrder)
+            {
+                case Delivery.Rush3Days:
+                    shippingPrice = _rushOrderPrice[0, surfaceAreaCategory];
+                    break;
+
+                case Delivery.Rush5Days:
+                    shippingPrice = _rushOrderPrice[1, surfaceAreaCategory];
+                    break;
+
+                case Delivery.Rush7Days:
+                    shippingPrice = _rushOrderPrice[2, surfaceAreaCategory];
+                    break;
+            }
+
+            quotePrice = quotePrice + surfacePrice + drawerPrice + materialPrice + shippingPrice;
+
+            return quotePrice;
         }
 
-        public decimal GetQuotePrice(int width, int depth, int numDrawers, DesktopMaterial material, int rushOrder)
+        private decimal getMaterialPrice(DesktopMaterial material)
         {
             decimal price = 0;
-
-            price += BaseDeskPrice;
-            price += width * depth;
-            price += numDrawers * DrawerPrice;
-            price += GetMaterialPrice(material);
-            if (rushOrder != 3)
-            {
-                price += GetRushOrderPrice(width, depth, rushOrder);
-            }
-            return price;
-        }
-
-        private int GetMaterialPrice(DesktopMaterial material)
-        {
-            int price = 0;
             switch (material)
             {
                 case DesktopMaterial.Oak:
-                    price = 200;
+                    price = 200.00M;
                     break;
                 case DesktopMaterial.Laminate:
-                    price = 100;
+                    price = 100.00M;
                     break;
                 case DesktopMaterial.Pine:
-                    price = 50;
+                    price = 50.00M;
                     break;
                 case DesktopMaterial.Rosewood:
-                    price = 300;
+                    price = 300.00M;
                     break;
                 case DesktopMaterial.Veneer:
-                    price = 125;
+                    price = 125.00M;
                     break;
                 default:
                     break;
@@ -67,40 +118,36 @@ namespace MegaDesk_Group8
             return price;
         }
 
-        private int GetRushOrderPrice(int width, int depth, int rushOrder)
+        private void getRushOrderPrice()
         {
-            int price = 0;
+            _rushOrderPrice = new int[3, 3];
 
-            string path = @"bin\Debug\rushOrderPrices.txt";
-            string[] lines = File.ReadAllLines(path);
+            var pricesFile = @"rushOrderPrices.txt";
 
-            int[,] rushOrderPrices = new int[3, 3];
-
-            int i = 0;
-
-            foreach (string line in lines)
+            try
             {
-                string[] values = line.Split(',');
-                for (int j = 0; j < 3; j++)
+                string[] prices = File.ReadAllLines(pricesFile);
+                int i = 0, j = 0;
+
+                foreach (string price in prices)
                 {
-                    rushOrderPrices[i, j] = int.Parse(values[j]);
-                }
-                i++;
-            }
+                    _rushOrderPrice[i, j] = int.Parse(price);
 
-            if (width * depth < 1000)
-            {
-                price = rushOrderPrices[0, rushOrder];
+                    if (j == 2)
+                    {
+                        i++;
+                        j = 0;
+                    }
+                    else
+                    {
+                        j++;
+                    }
+                }
             }
-            else if (width * depth >= 1000 && width * depth <= 2000)
+            catch (Exception)
             {
-                price = rushOrderPrices[1, rushOrder];
+                throw;
             }
-            else if (width * depth > 2000)
-            {
-                price = rushOrderPrices[2, rushOrder];
-            }
-            return price;
         }
     }
 }

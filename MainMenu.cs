@@ -19,9 +19,8 @@ namespace MegaDesk_Group8
 
         private void AddNewQuote_Click(object sender, EventArgs e)
         {
-            AddQuote viewAddQuote = new AddQuote();
-            viewAddQuote.Tag = this;
-            viewAddQuote.Show(this);
+            AddQuote viewAddQuote = new AddQuote(this);
+            viewAddQuote.Show();
             Hide();
         }
 
@@ -43,7 +42,7 @@ namespace MegaDesk_Group8
 
         private void Exit_Click(object sender, EventArgs e)
         {
-            Close();
+            Application.Exit();
         }
     }
 }

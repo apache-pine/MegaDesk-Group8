@@ -172,7 +172,6 @@
             0,
             0,
             0});
-            this.depthNumericUpDown.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.depthNumericUpDown_KeyPress);
             // 
             // widthNumericUpDown
             // 
@@ -195,7 +194,6 @@
             0,
             0,
             0});
-            this.widthNumericUpDown.Validating += new System.ComponentModel.CancelEventHandler(this.widthNumericUpDown_Validating);
             // 
             // depthLabel
             // 
@@ -286,11 +284,6 @@
             this.rushOrderComboBox.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.rushOrderComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.rushOrderComboBox.FormattingEnabled = true;
-            this.rushOrderComboBox.Items.AddRange(new object[] {
-            "3 Day",
-            "5 Day",
-            "7 Day",
-            "14 Day (Default)"});
             this.rushOrderComboBox.Location = new System.Drawing.Point(492, 149);
             this.rushOrderComboBox.Name = "rushOrderComboBox";
             this.rushOrderComboBox.Size = new System.Drawing.Size(162, 24);
@@ -310,7 +303,6 @@
             this.Name = "AddQuote";
             this.Text = "Add New Quote";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AddQuote_FormClosing);
-            this.Load += new System.EventHandler(this.AddQuote_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.DeskSizeBox.ResumeLayout(false);
