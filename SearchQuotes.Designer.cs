@@ -46,6 +46,7 @@
             this.desktopMaterialComboBox.Name = "desktopMaterialComboBox";
             this.desktopMaterialComboBox.Size = new System.Drawing.Size(207, 24);
             this.desktopMaterialComboBox.TabIndex = 0;
+            this.desktopMaterialComboBox.SelectedIndexChanged += new System.EventHandler(this.desktopMaterialComboBox_SelectedIndexChanged);
             // 
             // desktopMaterialLabel
             // 
