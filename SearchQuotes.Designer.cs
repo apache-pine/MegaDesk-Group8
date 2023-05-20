@@ -42,7 +42,8 @@
             // desktopMaterialComboBox
             // 
             this.desktopMaterialComboBox.FormattingEnabled = true;
-            this.desktopMaterialComboBox.Location = new System.Drawing.Point(402, 39);
+            this.desktopMaterialComboBox.Location = new System.Drawing.Point(463, 41);
+            this.desktopMaterialComboBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.desktopMaterialComboBox.Name = "desktopMaterialComboBox";
             this.desktopMaterialComboBox.Size = new System.Drawing.Size(207, 24);
             this.desktopMaterialComboBox.TabIndex = 0;
@@ -51,7 +52,7 @@
             // desktopMaterialLabel
             // 
             this.desktopMaterialLabel.AutoSize = true;
-            this.desktopMaterialLabel.Location = new System.Drawing.Point(271, 42);
+            this.desktopMaterialLabel.Location = new System.Drawing.Point(332, 45);
             this.desktopMaterialLabel.Name = "desktopMaterialLabel";
             this.desktopMaterialLabel.Size = new System.Drawing.Size(109, 16);
             this.desktopMaterialLabel.TabIndex = 1;
@@ -60,6 +61,7 @@
             // splitContainer1
             // 
             this.splitContainer1.Location = new System.Drawing.Point(12, 12);
+            this.splitContainer1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.splitContainer1.Name = "splitContainer1";
             this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -71,26 +73,29 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.dataGridView1);
-            this.splitContainer1.Size = new System.Drawing.Size(853, 468);
-            this.splitContainer1.SplitterDistance = 104;
+            this.splitContainer1.Size = new System.Drawing.Size(998, 468);
+            this.splitContainer1.SplitterDistance = 103;
             this.splitContainer1.TabIndex = 2;
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 3);
+            this.dataGridView1.Location = new System.Drawing.Point(3, 2);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(847, 354);
+            this.dataGridView1.Size = new System.Drawing.Size(992, 354);
             this.dataGridView1.TabIndex = 0;
             // 
             // SearchQuotes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(877, 492);
+            this.ClientSize = new System.Drawing.Size(1022, 494);
             this.Controls.Add(this.splitContainer1);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "SearchQuotes";
