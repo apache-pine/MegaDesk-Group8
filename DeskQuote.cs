@@ -1,13 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.IO;
 using System.ComponentModel;
 
 namespace MegaDesk_Group8
 {
+    // Represents the delivery options for a desk quote
     public enum Delivery
     {
         [Description("Rush 3 Days")]
@@ -22,6 +19,8 @@ namespace MegaDesk_Group8
         [Description("No Rush (14 Days)")]
         Default14Days
     }
+
+    // Represents a desk quote
     public class DeskQuote
     {
         private int[,] _rushOrderPrice;
@@ -30,14 +29,14 @@ namespace MegaDesk_Group8
         public const decimal DRAWER_PRICE = 50.00M;
         public const decimal SURFACE_AREA_PRICE = 1.00M;
 
+        // Properties
         public Desk Desk { get; set; }
         public string CustomerName { get; set; }
-        public DateTime QuoteDate { get; set; } 
+        public DateTime QuoteDate { get; set; }
         public Delivery RushOrder { get; set; }
         public decimal QuotePrice { get; set; }
-        
 
-
+        // Calculate the quote price
         public decimal GetQuotePrice()
         {
             getRushOrderPrice();
@@ -92,6 +91,7 @@ namespace MegaDesk_Group8
             return quotePrice;
         }
 
+        // Get the price of a specific desktop material
         private decimal getMaterialPrice(DesktopMaterial material)
         {
             decimal price = 0;
@@ -118,6 +118,7 @@ namespace MegaDesk_Group8
             return price;
         }
 
+        // Get the rush order prices from a file
         private void getRushOrderPrice()
         {
             _rushOrderPrice = new int[3, 3];

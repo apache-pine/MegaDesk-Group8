@@ -134,6 +134,7 @@
             this.desktopMaterialComboBox.Name = "desktopMaterialComboBox";
             this.desktopMaterialComboBox.Size = new System.Drawing.Size(162, 24);
             this.desktopMaterialComboBox.TabIndex = 4;
+            this.desktopMaterialComboBox.SelectedIndexChanged += new System.EventHandler(this.desktopMaterialComboBox_SelectedIndexChanged);
             // 
             // DeskSizeBox
             // 
@@ -172,6 +173,7 @@
             0,
             0,
             0});
+            this.depthNumericUpDown.ValueChanged += new System.EventHandler(this.depthNumericUpDown_ValueChanged);
             // 
             // widthNumericUpDown
             // 
@@ -194,6 +196,7 @@
             0,
             0,
             0});
+            this.widthNumericUpDown.ValueChanged += new System.EventHandler(this.widthNumericUpDown_ValueChanged);
             // 
             // depthLabel
             // 
@@ -265,6 +268,7 @@
             this.customerNameInput.Name = "customerNameInput";
             this.customerNameInput.Size = new System.Drawing.Size(266, 22);
             this.customerNameInput.TabIndex = 0;
+            this.customerNameInput.TextChanged += new System.EventHandler(this.customerNameInput_TextChanged);
             // 
             // numDrawerNumericUpDown
             // 
@@ -278,6 +282,7 @@
             this.numDrawerNumericUpDown.Name = "numDrawerNumericUpDown";
             this.numDrawerNumericUpDown.Size = new System.Drawing.Size(43, 22);
             this.numDrawerNumericUpDown.TabIndex = 3;
+            this.numDrawerNumericUpDown.ValueChanged += new System.EventHandler(this.numDrawerNumericUpDown_ValueChanged);
             // 
             // rushOrderComboBox
             // 
@@ -288,6 +293,7 @@
             this.rushOrderComboBox.Name = "rushOrderComboBox";
             this.rushOrderComboBox.Size = new System.Drawing.Size(162, 24);
             this.rushOrderComboBox.TabIndex = 5;
+            this.rushOrderComboBox.SelectedIndexChanged += new System.EventHandler(this.rushOrderComboBox_SelectedIndexChanged);
             // 
             // AddQuote
             // 

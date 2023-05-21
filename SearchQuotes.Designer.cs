@@ -101,7 +101,6 @@
             this.Name = "SearchQuotes";
             this.Text = "SearchQuotes";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SearchQuotes_FormClosing);
-            this.Load += new System.EventHandler(this.SearchQuotes_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);

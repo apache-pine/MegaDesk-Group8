@@ -2,13 +2,10 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Reflection;
 using System.Windows.Forms;
-using System.Text.Json;
 
 namespace MegaDesk_Group8
 {
@@ -18,21 +15,18 @@ namespace MegaDesk_Group8
         {
             InitializeComponent();
 
+            // Populate the desktopMaterialComboBox with the available desktop materials
             List<string> desktopMaterial = Enum.GetNames(typeof(DesktopMaterial)).ToList();
             desktopMaterial.Insert(0, "All Materials");
-
             desktopMaterialComboBox.DataSource = desktopMaterial;
 
+            // Load the grid with all quotes when the form is initialized
             loadGrid();
-        }
-
-        private void SearchQuotes_Load(object sender, EventArgs e)
-        {
-
         }
 
         private void SearchQuotes_FormClosing(object sender, FormClosingEventArgs e)
         {
+            // Show the main menu form when this form is closing
             MainMenu viewMainMenu = (MainMenu)Tag;
             viewMainMenu.Show();
         }
@@ -43,12 +37,26 @@ namespace MegaDesk_Group8
 
             if (combo.SelectedIndex == 0)
             {
+                // Load the grid with all quotes when "All Materials" is selected
                 loadGrid();
             }
             else
             {
+                // Load the grid with quotes filtered by the selected desktop material
                 loadGrid(combo.SelectedValue.ToString());
             }
+        }
+
+        private string GetEnumDescription(Enum value)
+        {
+            // Get the field info for the enum value
+            FieldInfo field = value.GetType().GetField(value.ToString());
+
+            // Get the description attribute of the field, if available
+            DescriptionAttribute attribute = field.GetCustomAttribute<DescriptionAttribute>();
+
+            // Return the description attribute value if found, otherwise the string representation of the enum value
+            return attribute != null ? attribute.Description : value.ToString();
         }
 
         private void loadGrid()
@@ -60,6 +68,7 @@ namespace MegaDesk_Group8
                 string quotes = reader.ReadToEnd();
                 List<DeskQuote> deskQuotes = System.Text.Json.JsonSerializer.Deserialize<List<DeskQuote>>(quotes);
 
+                // Set the DataGridView's data source with the required properties from the DeskQuote objects
                 dataGridView1.DataSource = deskQuotes.Select(d => new
                 {
                     Date = d.QuoteDate,
@@ -68,8 +77,8 @@ namespace MegaDesk_Group8
                     Width = d.Desk.DeskWidth,
                     Drawers = d.Desk.NumDrawers,
                     SurfaceMaterial = d.Desk.DesktopMaterial,
-                    RushOrder = d.RushOrder,
-                    QuotePrice = d.QuotePrice
+                    RushOrder = GetEnumDescription(d.RushOrder),
+                    QuotePrice = d.QuotePrice.ToString("C")
                 }).ToList();
             }
         }
@@ -85,6 +94,8 @@ namespace MegaDesk_Group8
 
                 DesktopMaterial desktopMaterialSelection = (DesktopMaterial)Enum.Parse(typeof(DesktopMaterial), desktopMaterial);
 
+                // Set the DataGridView's data source with the required properties from the DeskQuote objects,
+                // filtered by the selected desktop material
                 dataGridView1.DataSource = deskQuotes.Select(d => new
                 {
                     Date = d.QuoteDate,
@@ -93,8 +104,8 @@ namespace MegaDesk_Group8
                     Width = d.Desk.DeskWidth,
                     Drawers = d.Desk.NumDrawers,
                     SurfaceMaterial = d.Desk.DesktopMaterial,
-                    RushOrder = d.RushOrder,
-                    QuotePrice = d.QuotePrice
+                    RushOrder = GetEnumDescription(d.RushOrder),
+                    QuotePrice = d.QuotePrice.ToString("C")
                 }).Where(q => q.SurfaceMaterial == desktopMaterialSelection)
                 .ToList();
             }
