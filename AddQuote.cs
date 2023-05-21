@@ -209,7 +209,8 @@ namespace MegaDesk_Group8
                 widthNumericUpDown.Value <= Desk.DESK_MAX_WIDTH &&
                 depthNumericUpDown.Value >= Desk.DESK_MIN_DEPTH &&
                 depthNumericUpDown.Value <= Desk.DESK_MAX_DEPTH &&
-                numDrawerNumericUpDown.Value >= 0)
+                numDrawerNumericUpDown.Value >= Desk.DESK_MIN_NUM_DRAWERS &&
+                numDrawerNumericUpDown.Value <= Desk.DESK_MAX_NUM_DRAWERS)
             {
                 getQuoteButton.Enabled = true;
             }

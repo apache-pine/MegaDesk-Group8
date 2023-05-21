@@ -7,6 +7,8 @@
         public const int DESK_MAX_WIDTH = 96;
         public const int DESK_MIN_DEPTH = 12;
         public const int DESK_MAX_DEPTH = 48;
+        public const int DESK_MIN_NUM_DRAWERS = 0;
+        public const int DESK_MAX_NUM_DRAWERS = 7;
 
         // Properties
         public int DeskWidth { get; set; }
